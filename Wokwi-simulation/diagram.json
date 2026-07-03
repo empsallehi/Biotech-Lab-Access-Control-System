@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "author": "Khatere Salehi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 67.2, "left": -14.36, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 121.6,
+      "left": -455.2,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "board-mfrc522", "id": "rfid1", "top": 112.55, "left": 320.24, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": 334, "left": -436, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-19.2", "v115.2", "h451.2", "v-48" ] ],
+    [ "lcd1:VCC", "esp:VN", "red", [ "h-28.8", "v-57.5", "h460.8", "v19.2" ] ],
+    [ "lcd1:SDA", "esp:21", "blue", [ "h-9.6", "v-115", "h556.8", "v86.4" ] ],
+    [
+      "lcd1:SCL",
+      "esp:22",
+      "gold",
+      [ "h-38.4", "v-105.3", "h470.4", "v-28.8", "h124.8", "v67.2" ]
+    ],
+    [ "rfid1:3.3V", "esp:3V3", "orange", [ "h-220.8", "v67.2", "h-134.4", "v-192" ] ],
+    [ "rfid1:GND", "esp:GND.2", "black", [ "h-211.2", "v-105.6", "h-28.8" ] ],
+    [ "rfid1:MISO", "esp:19", "green", [ "h-220.8", "v-28.8" ] ],
+    [ "rfid1:MOSI", "esp:23", "white", [ "h-192", "v-67.2" ] ],
+    [ "rfid1:SCK", "esp:18", "violet", [ "h-201.6", "v9.6" ] ],
+    [ "rfid1:SDA", "esp:5", "#8f4814", [ "h-182.4", "v38.4", "h-48", "v-9.6" ] ],
+    [ "rfid1:RST", "esp:4", "gray", [ "h0" ] ],
+    [ "keypad1:R1", "esp:13", "red", [ "v76.8", "h288", "v-547.2" ] ],
+    [ "keypad1:R2", "esp:12", "orange", [ "v67.2", "h268.4", "v-556.8" ] ],
+    [ "keypad1:R3", "esp:14", "yellow", [ "v57.6", "h249.3", "v-556.8" ] ],
+    [ "keypad1:R4", "esp:27", "violet", [ "v48", "h230.2", "v-556.8" ] ],
+    [ "keypad1:C1", "esp:26", "cyan", [ "v38.4", "h211.1", "v-556.8" ] ],
+    [ "keypad1:C2", "esp:25", "limegreen", [ "v28.8", "h192", "v-566.4" ] ],
+    [ "esp:33", "keypad1:C3", "blue", [ "h-95.85", "v528", "h-172.8" ] ]
+  ],
+  "dependencies": {}
+}
